@@ -13,9 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined'));
 
 //Routes
-app.get('/', (req, res) => {
-  res.send('sending string through get route');
-});
+app.use('/', require('./routes/users'));
 //Database Connection
 mongoose
   .connect(process.env.MONGODB_URI)
